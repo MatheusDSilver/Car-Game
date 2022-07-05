@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Car Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  
+  <div class="pai_jogo">
+    <div class="boneco">
+      
+    </div>
+    <div class="carro1">
+      1
+    </div>
+    <div class="carro2">
+      2
+    </div>
+    <div class="carro3">
+      3
+    </div>
+  </div>
+  
+  <div class="pai_button">
+    <button class="esquerda">
+      Esquerda
+    </button>
+    <button class="direita">
+      Direita
+    </button>
+  </div>
+  
+  <script>
+    var boneco = document.querySelector("div.boneco")
+    var esquerda = document.querySelector("button.esquerda")
+    var direita = document.querySelector("button.direita")
+    var carro1 = document.querySelector("div.carro1")
+    var carro2 = document.querySelector("div.carro2")
+    var carro3 = document.querySelector("div.carro3")
+    
+    var xBoneco = 168
+    var y1 = 0
+    var y2 = 0
+    var y3 = 0
+    var alturaPai = 505
+    var validador1 = 1
+    var validador2 = 0
+    var validador3 = 0
+    var anima
+    
+    boneco.style.left = xBoneco + "px"
+    boneco.style.top = "453px"
+    
+    carro1.style.left = "298px"
+    carro1.style.top = y1 + "px"
+    
+    carro2.style.left = "38px"
+    carro2.style.top = y2 + "px"
+    
+    carro3.style.left = "168px"
+    carro3.style.top = y3 + "px"
+    
+    function game()
+    {
+      boneco.style.left = xBoneco + "px"
+      
+      /* validador1, já inicia com valor
+        1*/
+      
+      if(y1 >= 130) {
+        validador2 = 1
+      }
+      
+      if(y1 >= 300) {
+        validador3 = 1
+      }
+      
+      if(validador1 == 1) {
+        y1 += 1
+        carro1.style.top = y1 + "px"
+      }
+      
+      if(validador2 == 1) {
+        y2 += 1
+        carro2.style.top = y2 + "px"
+      }
+      
+      if(validador3 == 1) {
+        y3 += 1
+        carro3.style.top = y3 + "px"
+      }
+      
+      if(y1 == alturaPai) {
+        y1 = 0
+        validador1 = 0
+      }
+      
+      if(y2 == alturaPai) {
+        y2 = 0
+        validador2 = 0
+      }
+      
+      if(y3 == alturaPai) {
+        y3 = 0
+        validador3 = 0
+      }
+      
+      if(y1 >= 403 && y1 <= 503 && xBoneco == 298 || y2 >= 403 && y2 <= 503 && xBoneco == 38 || y3 >= 403 && y3 <= 503 && xBoneco == 168) {
+        end()
+      }
+      
+      else {
+        anima = requestAnimationFrame(game)
+      }
+    }
+    
+    function end() {
+      cancelAnimationFrame(anima)
+      /*xBoneco = 168
+      y1 = -50
+      y2 = -180
+      y3 = -400*/
+    }
+    
+    function esq()
+      {
+        xBoneco-=130
+        boneco.style.left = xBoneco + "px"
+      }
+    
+      function dire()
+      {
+        xBoneco+=130
+        boneco.style.left = xBoneco + "px"
+      }
+      
+    esquerda.addEventListener("click", esq)
+    direita.addEventListener("click", dire)
+    boneco.addEventListener("click", game)
+  
+  </script>
+</body>
+
+</html>

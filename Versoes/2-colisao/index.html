@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="pai_jogo">
+    <div class="my_car">
+      
+    </div>
+    <div class="carro1">
+      
+    </div>
+  </div>
+  <div class="pai_button flex">
+    <button class="esquerda">
+      Esquerda
+    </button>
+    <button class="direita">
+      Direita
+    </button>
+  </div>
+  <script>
+    var boneco = document.querySelector("div.my_car")
+    var esquerda = document.querySelector("button.esquerda")
+    var direita = document.querySelector("button.direita")
+    var carro1 = document.querySelector("div.carro1")
+    
+    var receber = 298
+    var tp = 453
+    var aumentar = 0
+    var colisao = 0
+    boneco.style.left = receber + "px"
+    boneco.style.top = tp + "px"
+    carro1.style.top = aumentar + "px"
+    carro1.style.left = 298 + "px"
+    
+    function game()
+    {
+      aumentar += 1
+      carro1.style.top = aumentar + "px"
+      if(aumentar == 403 && receber == 298) {
+        window.alert("oi")
+      }
+      requestAnimationFrame(game)
+    }
+    function esq()
+    {
+      receber-=130
+      //receber, equivale a posicao do meu carro
+      boneco.style.left = receber + "px"
+    }
+    
+    function dire()
+    {
+      receber+=130
+      boneco.style.left = receber + "px"
+    }
+  
+    esquerda.addEventListener("click", esq)
+    direita.addEventListener("click", dire)
+    boneco.addEventListener("click", game)
+    
+    
+    /*Uma função nao pode conter o mesmo nome de uma variável existente*/
+    /*Uma variavel nao pode ter o mesmo nome de metodo/propriedade*/
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+    .my_car {
+      position: absolute;
+      background-color: blue;
+      height: 50px;
+      width: 50px;
+      /*top: 453px;*/
+    }
+    .carro1 {
+      position: absolute;
+      background-color: yellow;
+      height: 50px;
+      width: 50px;
+      /*left: 168px;*/
+      
+    }
+    .carro2 {
+      position: absolute;
+      background-color: yellow;
+      height: 50px;
+      width: 50px;
+    }
+    .pai_jogo {
+      background-color: red;
+      height: 70vh;
+    }
+    
+    .flex {
+      display: flex;
+      flex-direction: row;
+    }
+    
+    .pai_button {
+      height: 10vh;
+    }
+    .esquerda, .direita {
+      flex-grow: 1;
+      flex-basis: 0;
+      height: 100%;
+    }

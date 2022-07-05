@@ -1,0 +1,66 @@
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+    
+    .boneco {
+      position: absolute;
+      background-color: blue;
+      height: 50px;
+      width: 50px;
+      
+    }
+    .carro1 {
+      position: absolute;
+      background-color: red;
+      height: 50px;
+      width: 50px;
+      z-index: 1;
+      
+    }
+    
+    .carro2 {
+      position: absolute;
+      background-color: red;
+      height: 50px;
+      width: 50px;
+      z-index: 1;
+    }
+    
+    .carro3 {
+      position: absolute;
+      background-color: red;
+      height: 50px;
+      width: 50px;
+      z-index: 1;
+    }
+    
+    .pai_jogo {
+      background-color: dimgrey;
+      height: 505px;
+      width: 384px;
+    }
+    
+    .pai_button {
+      position: relative;
+      z-index: 2;
+      height: 80px;
+      width: 384px;
+      background-color: lightgray;
+    }
+    
+    .esquerda, .direita {
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+      width: 49%;
+      height: 100%;
+      background-color: lightgrey;
+      border: none;
+    }
+    
+    .esquerda {
+      border-right: 1px solid black;
+      left: 4px;
+    }

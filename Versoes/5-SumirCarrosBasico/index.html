@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Car Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="pai_jogo">
+    <div class="my_car">
+      
+    </div>
+    <div class="carro1">
+      
+    </div>
+    <div class="carro2">
+      
+    </div>
+  </div>
+  <div class="esconder">
+    
+  </div>
+  <div class="pai_button flex">
+    <button class="esquerda">
+      Esquerda
+    </button>
+    <button class="direita">
+      Direita
+    </button>
+  </div>
+  <script>
+    var boneco = document.querySelector("div.my_car")
+    var esquerda = document.querySelector("button.esquerda")
+    var direita = document.querySelector("button.direita")
+    var carro1 = document.querySelector("div.carro1")
+    var carro2 = document.querySelector("div.carro2")
+    
+    var xBoneco = 168
+    var y1 = 0
+    var y2 = -100
+    var alturaPai = 503
+    var anima
+    var altura1 = 50
+    var altura2 = 0
+    
+    boneco.style.left = xBoneco + "px"
+    boneco.style.top = "453px"
+    
+    carro1.style.top = y1 + "px"
+    carro1.style.left = "298px"
+    carro1.style.height = altura1 + "px"
+    
+    carro2.style.left = "38px"
+    carro2.style.top = y2 + "px"
+    
+    function game()
+    {
+      carro2.style.top = y2 + "px"
+      carro1.style.top = y1 + "px"
+      
+      y1 += 1
+      y2 += 1
+    
+      
+      if(y1 == alturaPai) {
+        
+        y1 = -50
+        
+      }
+      if(y2 == alturaPai) {
+        y2 = -50
+      }
+      
+      if(y1 == 403 && xBoneco == 298 || y2 == 403 && xBoneco == 38) {
+        end()
+      }
+      //caso tenha mais de um if, e um deles teste verdadeiro, o programa vai continuar testando os outros, e por causa disso, o request vai continuar executando enquanto eles sao testados, ele so vai parar no else. Sendo assim, colocar todas as possibilidades dentro de um if só, utilizando o or, para que o programa pare na hora correta.
+      else {
+        anima = requestAnimationFrame(game)
+        //para que meu request pare, precisei criar esse if else, e colocar para que ele apenas execute o codigo novamente, caso minha condicao de batita teste falso. Caso contrario, se eu colocasse normalmente o codido para ele parar, o programa pararia naquele instante, mas o request iria ler o restando do codigo, e por sua vez ler ele mesmo, e recomeçar tudo novamente
+      }
+    }
+    
+    function esq()
+    {
+      xBoneco-=130
+      //xBoneco, equivale a posicao do meu carro
+      boneco.style.left = xBoneco + "px"
+    }
+    
+    function dire()
+    {
+      xBoneco+=130
+      boneco.style.left = xBoneco + "px"
+    }
+    
+    function end() {
+      cancelAnimationFrame(anima)
+      window.alert("Oh no, you crash!!!")
+    }
+  
+    esquerda.addEventListener("click", esq)
+    direita.addEventListener("click", dire)
+    boneco.addEventListener("click", game)
+    carro2.addEventListener("click", end)
+    
+    
+    /*Uma função nao pode conter o mesmo nome de uma variável existente*/
+    /*Uma variavel nao pode ter o mesmo nome de metodo/propriedade*/
+
+  </script>
+</body>
+
+</html>
