@@ -78,6 +78,8 @@
     
     var anima
 
+    var play = document.querySelector("button.play")
+
     boneco.style.left = xBoneco + "px"
     boneco.style.top = "453px"
 
@@ -496,3 +498,4 @@
     direita.addEventListener("click", dire)
     //touchend
     boneco.addEventListener("click", callGame)
+    play.addEventListener("click", callGame)
