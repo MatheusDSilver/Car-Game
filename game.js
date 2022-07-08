@@ -490,12 +490,13 @@
     /*Essa função "callGame", serve litaralmente para dar um tranco no meu carro e fazer ele funcionar. Ela sempre vai fazer o jogo rodar a primeira vez e toda hora que acontecer uma colisão, e depois isso ele já vai conseguir rodar sozinho. Visto que a função que mantem o jogo funcionando (rodando) é a colisão, porque ela possui o requestAnimation.
     */
     
-  
-    esquerda.addEventListener("touchstart", esq)
-    esquerda.addEventListener("click", esq)
-
-    direita.addEventListener("touchstart", dire)
-    direita.addEventListener("click", dire)
+    if(screen.width < 650) {
+      esquerda.addEventListener("touchstart", esq)
+      direita.addEventListener("touchstart", dire)
+    } else {
+      esquerda.addEventListener("click", esq)
+      direita.addEventListener("click", dire)
+    }
     //touchend
     boneco.addEventListener("click", callGame)
     play.addEventListener("click", callGame)
