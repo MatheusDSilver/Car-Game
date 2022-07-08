@@ -191,7 +191,7 @@
     .pai_button {
       position: relative;
       z-index: 2;
-      height: 169px;
+      height: 169px; /*169*/
       width: 384px;
       background-color: lightgray;
     }
@@ -201,7 +201,7 @@
       position: relative;
       z-index: 2;
       width: 49%;
-      height: 100%;
+      height: 50%;
       background-color: lightgrey;
       border: none;
     }
@@ -209,4 +209,25 @@
     .esquerda {
       border-right: 1px solid black;
       left: 4px;
+    }
+    .play {
+      display: block;
+      z-index: 2;
+      width: 100%;
+      height: 50%;
+      background-color: lightgrey;
+    }
+    .placaFim {
+      position: absolute;
+      z-index: 3;
+      left: 1px;
+      top: -1px;
+      width: 383px;
+      height: 505px;
+      background-color: red;
+      background-image: url("You crash.png");
+      background-repeat: no-repeat;
+      background-size: 450px 515px;
+      background-position: -1 -2px;
+     
     }

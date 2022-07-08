@@ -21,6 +21,9 @@
     var estrada3 = document.querySelector("div.estrada3")
     var estrada4 = document.querySelector("div.estrada4")
 
+    var placaFim = document.querySelector("div.placaFim")
+    var placaFim_display = "none"
+    placaFim.style.display = placaFim_display
 
     var xBoneco = 168
     
@@ -113,11 +116,16 @@
     
     //testador imagem
     /*carro5.style.top = "370px"
-    carro5.style.left = "168px"*/
+    carro5.style.left = "168px"
+    placaFim_display = "block"
+    placaFim.style.display = placaFim_display*/
     
     function game() {
       travaJogo = 1
       boneco.style.left = xBoneco + "px"
+
+      placaFim_display = "none"
+      placaFim.style.display = placaFim_display
 
       if(EndValidador == 1) {
         carro1.style.top = y1 + "px"
@@ -218,8 +226,11 @@
       travaJogo = 0
       
       EndValidador = 1
+
+      placaFim_display = "block"
+      placaFim.style.display = placaFim_display
       
-      //EndValidador é usado para dizer que no momento em que ouver uma colisão, os carros reiniciem a posiçao deles. Ele basicamente serve, para que isso apenas aconteça no momento de uma colisão. Sem ele, geraria um pequeno conflito dentro da função.
+      //EndValidador é usado para dizer que no momento em que ouver uma colisão, os carros reiniciem a posiçao deles. Ele basicamente serve para que isso apenas aconteça no momento de uma colisão. Sem ele, geraria um pequeno conflito dentro da função.
       
     }
 
@@ -468,13 +479,16 @@
       estrada4.style.top = contadorRoad4 + "px"
     }
     
-    function callGame() {
+    function callGame() {   
       if(travaJogo == 0) {
         game()
       }
     }
+
+    /*Essa função "callGame", serve litaralmente para dar um tranco no meu carro e fazer ele funcionar. Ela sempre vai fazer o jogo rodar a primeira vez e toda hora que acontecer uma colisão, e depois isso ele já vai conseguir rodar sozinho. Visto que a função que mantem o jogo funcionando (rodando) é a colisão, porque ela possui o requestAnimation.
+    */
     
-    
+  
     esquerda.addEventListener("touchstart", esq)
     esquerda.addEventListener("click", esq)
 
