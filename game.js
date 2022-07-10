@@ -222,6 +222,8 @@
       travaJogo = 0
       
       EndValidador = 1
+
+      play.innerHTML = "Jogar"
       
       //EndValidador é usado para dizer que no momento em que ouver uma colisão, os carros reiniciem a posiçao deles. Ele basicamente serve para que isso apenas aconteça no momento de uma colisão. Sem ele, geraria um pequeno conflito dentro da função.
 
@@ -495,7 +497,7 @@
         travaJogo == 0 ? travaJogo = 1 : travaJogo = 0
       } else {
         end()
-        play.innerHTML = "Jogar"
+        // play.innerHTML = "Jogar"
       }
       
     }
