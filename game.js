@@ -12,6 +12,7 @@
     var carro9 = document.querySelector("div.carro9")
     
     var quadPont = document.querySelector("div.quadPont")
+    var quadPont2 = document.querySelector("div.quadPont2")
     
     //Apenas para o quadro de pontos aparecer zero, antes do programa rodar
     quadPont.innerHTML = 0
@@ -20,6 +21,8 @@
     var estrada2 = document.querySelector("div.estrada2")
     var estrada3 = document.querySelector("div.estrada3")
     var estrada4 = document.querySelector("div.estrada4")
+
+    var play = document.querySelector("button.play")
 
     var placaFim = document.querySelector("div.placaFim")
     var placaFim_display = "none"
@@ -78,8 +81,6 @@
     
     var anima
 
-    var play = document.querySelector("button.play")
-
     boneco.style.left = xBoneco + "px"
     boneco.style.top = "453px"
 
@@ -116,18 +117,12 @@
     estrada4.style.top = "338px"
     
     
-    //testador imagem
-    /*carro5.style.top = "370px"
-    carro5.style.left = "168px"
-    placaFim_display = "block"
-    placaFim.style.display = placaFim_display*/
-    
     function game() {
       travaJogo = 1
       boneco.style.left = xBoneco + "px"
 
-      placaFim_display = "none"
-      placaFim.style.display = placaFim_display
+      // placaFim_display = "none"
+      // placaFim.style.display = placaFim_display
 
       if(EndValidador == 1) {
         carro1.style.top = y1 + "px"
@@ -175,6 +170,8 @@
 
       yEnd()
 
+      bloqueiaPlaca()
+
       colisao()
       
       speedUp()
@@ -216,6 +213,7 @@
       trava4 = 1
       trava7 = 1
       
+      placa()
       cont = 0
       pont = 0
       speed = 2
@@ -228,12 +226,26 @@
       travaJogo = 0
       
       EndValidador = 1
-
-      placaFim_display = "block"
-      placaFim.style.display = placaFim_display
       
       //EndValidador é usado para dizer que no momento em que ouver uma colisão, os carros reiniciem a posiçao deles. Ele basicamente serve para que isso apenas aconteça no momento de uma colisão. Sem ele, geraria um pequeno conflito dentro da função.
+
       
+      
+    }
+
+    function placa() {
+      placaFim_display = "block"
+      placaFim.style.display = placaFim_display
+      // quadPont2.style.border = "2px solid black"
+      quadPont2.style.display = "block"
+      quadPont2.style.border = "1px dotted black"
+      quadPont2.innerHTML = pont
+    }
+
+    function bloqueiaPlaca() {
+      placaFim_display = "none"
+      placaFim.style.display = placaFim_display
+      quadPont2.style.display = "none"
     }
 
     function esq() {
@@ -487,9 +499,23 @@
       }
     }
 
+
+
     /*Essa função "callGame", serve litaralmente para dar um tranco no meu carro e fazer ele funcionar. Ela sempre vai fazer o jogo rodar a primeira vez e toda hora que acontecer uma colisão, e depois isso ele já vai conseguir rodar sozinho. Visto que a função que mantem o jogo funcionando (rodando) é a colisão, porque ela possui o requestAnimation.
     */
+
+    function tester() {
+      /*carro5.style.top = "370px"
+      carro5.style.left = "168px"
+      placaFim_display = "block"
+      placaFim.style.display = placaFim_display*/
+      /*carro5.style.top = "370px"
+      carro5.style.left = "168px"*/
+      placaFim_display = "block"
+      placaFim.style.display = placaFim_display
+    }
     
+
     if(screen.width < 650) {
       esquerda.addEventListener("touchstart", esq)
       direita.addEventListener("touchstart", dire)
@@ -500,3 +526,4 @@
     //touchend
     boneco.addEventListener("click", callGame)
     play.addEventListener("click", callGame)
+    // tester()

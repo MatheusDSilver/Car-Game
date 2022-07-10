@@ -135,6 +135,20 @@
       font-size: 3rem;
       
     }
+    
+    .quadPont2 {
+      position: absolute;
+      z-index: 4;
+      left: 148px;
+      top: 280px;
+      height: 60px;
+      width: 88px;
+      color: blue;
+      text-align: center;
+      font-size: 3rem;
+      /* background-color: none;
+      border: 2px solid black; */
+    }
 
     .estrada1 {
       position: absolute;
@@ -219,7 +233,7 @@
     }
     .placaFim {
       position: absolute;
-      z-index: 3;
+      z-index: 4;
       left: 1px;
       top: -1px;
       width: 383px;
@@ -228,6 +242,6 @@
       background-image: url("You crash.png");
       background-repeat: no-repeat;
       background-size: 450px 515px;
-      background-position: -1 -2px;
+      background-position: -22px 1px;
      
     }
