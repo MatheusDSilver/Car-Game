@@ -146,8 +146,6 @@
       color: blue;
       text-align: center;
       font-size: 3rem;
-      /* background-color: none;
-      border: 2px solid black; */
     }
 
     .estrada1 {
@@ -159,6 +157,7 @@
       background-repeat: no-repeat;
       height: 169px;
       width: 384px;
+      z-index: 1;
     }
     
     .estrada2 {
@@ -170,6 +169,7 @@
       background-repeat: no-repeat;
       height: 169px;
       width: 384px;
+      z-index: 1;
     }
     
     .estrada3 {

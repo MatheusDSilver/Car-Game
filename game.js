@@ -118,11 +118,7 @@
     
     
     function game() {
-      travaJogo = 1
       boneco.style.left = xBoneco + "px"
-
-      // placaFim_display = "none"
-      // placaFim.style.display = placaFim_display
 
       if(EndValidador == 1) {
         carro1.style.top = y1 + "px"
@@ -230,13 +226,11 @@
       //EndValidador é usado para dizer que no momento em que ouver uma colisão, os carros reiniciem a posiçao deles. Ele basicamente serve para que isso apenas aconteça no momento de uma colisão. Sem ele, geraria um pequeno conflito dentro da função.
 
       
-      
     }
 
     function placa() {
       placaFim_display = "block"
       placaFim.style.display = placaFim_display
-      // quadPont2.style.border = "2px solid black"
       quadPont2.style.display = "block"
       quadPont2.style.border = "1px dotted black"
       quadPont2.innerHTML = pont
@@ -493,15 +487,20 @@
       estrada4.style.top = contadorRoad4 + "px"
     }
     
-    function callGame() {   
+    function callGame() {  
+
       if(travaJogo == 0) {
         game()
+        play.innerHTML = "Fim de jogo"
+        travaJogo == 0 ? travaJogo = 1 : travaJogo = 0
+      } else {
+        end()
+        play.innerHTML = "Jogar"
       }
+      
     }
 
-
-
-    /*Essa função "callGame", serve litaralmente para dar um tranco no meu carro e fazer ele funcionar. Ela sempre vai fazer o jogo rodar a primeira vez e toda hora que acontecer uma colisão, e depois isso ele já vai conseguir rodar sozinho. Visto que a função que mantem o jogo funcionando (rodando) é a colisão, porque ela possui o requestAnimation.
+    /*Essa função "callGame", serve litaralmente para dar um tranco no meu carro e fazer ele funcionar. Ela sempre vai fazer o jogo rodar a primeira vez e toda hora que acontecer uma colisão ou eu finalizá-la, e depois isso ele já vai conseguir rodar sozinho. Visto que a função que mantem o jogo funcionando (rodando) é a colisão, porque ela possui o requestAnimation.
     */
 
     function tester() {
